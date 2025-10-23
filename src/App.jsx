@@ -118,7 +118,7 @@ function monthTicks(min, max, limit = 24) {
 
 /* ============== DADOS EXEMPLO (troque pela sua origem) ============== */
 const SAMPLE = [
-  {
+  /* {
     industria: "KDU",
     dataEmissao: "2025-06-09",
     faturado: 31,
@@ -150,7 +150,7 @@ const SAMPLE = [
     etapa: "6 - Entrega Realizada",
     status: "Concluído",
     produtos: "Terno",
-  },
+  },*/
   {
     industria: "KDU",
     dataEmissao: "2025-09-05",
@@ -184,7 +184,7 @@ const SAMPLE = [
     status: "Na linha de produção",
     produtos: "Polo EP",
   },
-  {
+  /*{
     industria: "Don Geuroth",
     dataEmissao: "2025-09-05",
     faturado: 36,
@@ -194,7 +194,7 @@ const SAMPLE = [
     etapa: "6 - Entrega Realizada",
     status: "Concluído",
     produtos: "Polo EP",
-  },
+  },*/
   {
     industria: "Angelo Campana",
     dataEmissao: "2025-10-09",
@@ -212,7 +212,7 @@ const SAMPLE = [
     faturado: 0,
     pendente: 126,
     numeroERP: "3213",
-    previsaoEntrega: "2025-01-30",
+    previsaoEntrega: "2026-01-30",
     etapa: "3 - Fila de produção",
     status: "Na fila de produção",
     produtos: "Terno",
