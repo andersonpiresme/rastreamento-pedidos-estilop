@@ -472,7 +472,7 @@ function Dashboard({ onLogout }) {
             Rastreamento de Pedidos
           </h1>
           <div className="flex items-center">
-            <img src="/cristal10-dark.png" alt="Cristal 10 Representações" className="h-6 sm:h-8 opacity-90" />
+            <img src="/cristal10-dark.png" alt="Cristal 10 Representações" className="h-6 sm:h-8 opacity-100" />
           </div>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-8 pb-3 flex justify-center">
@@ -616,7 +616,7 @@ export default function App() {
             </button>
 
             <div className="mt-6 flex items-center justify-center">
-              <img src="/cristal10.svg" alt="Cristal 10" className="h-6 opacity-70" />
+              <img src="/cristal10.svg" alt="Cristal 10" className="h-6 opacity-100" />
             </div>
           </form>
         </div>
