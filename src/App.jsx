@@ -1,3 +1,4 @@
+
 import React, { useEffect, useMemo, useState } from "react";
 
 /* ==================== CSV Utils ==================== */
@@ -118,115 +119,60 @@ function monthTicks(min, max, limit = 24) {
 
 /* ============== DADOS EXEMPLO (troque pela sua origem) ============== */
 const SAMPLE = [
-  /* {
-    industria: "KDU",
-    dataEmissao: "2025-06-09",
-    faturado: 31,
-    pendente: 0,
-    numeroERP: "180193",
-    previsaoEntrega: "2025-06-16",
-    etapa: "6 - Entrega Realizada",
-    status: "Concluído",
-    produtos: "Calça Jeans/Sarja",
-  },
   {
-    industria: "KDU",
-    dataEmissao: "2025-06-09",
-    faturado: 72,
-    pendente: 0,
-    numeroERP: "180194",
-    previsaoEntrega: "2025-07-09",
-    etapa: "6 - Entrega Realizada",
-    status: "Concluído",
-    produtos: "Terno",
-  },
-  {
-    industria: "KDU",
-    dataEmissao: "2025-07-16",
-    faturado: 12,
-    pendente: 0,
-    numeroERP: "181838",
-    previsaoEntrega: "2025-08-21",
-    etapa: "6 - Entrega Realizada",
-    status: "Concluído",
-    produtos: "Terno",
-  },*/
-  {
-    industria: "KDU",
-    dataEmissao: "2025-09-05",
+    industria: "Luiz Eugenio",
+    dataEmissao: "2025-09-26",
     faturado: 0,
-    pendente: 70,
-    numeroERP: "184709",
-    previsaoEntrega: "2025-11-04",
+    pendente: 601,
+    numeroERP: "200448",
+    previsaoEntrega: "2025-11-28",
     etapa: "4 - Em Produção",
-    status: "Na linha de produção",
-    produtos: "Terno",
+    status: "Calças Bege e preta na linha de produção",
+    produtos: "Calças Malha",
   },
   {
-    industria: "KDU",
-    dataEmissao: "2025-09-05",
-    faturado: 0,
-    pendente: 107,
-    numeroERP: "184708",
-    previsaoEntrega: "2025-11-04",
-    etapa: "4 - Em Produção",
-    status: "Na linha de produção",
-    produtos: "Calça Jeans/Sarja",
-  },
-  {
-    industria: "Don Geuroth",
-    dataEmissao: "2025-09-05",
-    faturado: 0,
-    pendente: 21,
-    numeroERP: "3175",
-    previsaoEntrega: "2025-10-30",
-    etapa: "4 - Em Produção",
-    status: "Na linha de produção",
-    produtos: "Polo EP",
-  },
-  /*{
-    industria: "Don Geuroth",
-    dataEmissao: "2025-09-05",
-    faturado: 36,
-    pendente: 0,
-    numeroERP: "3033",
-    previsaoEntrega: "2025-10-01",
-    etapa: "6 - Entrega Realizada",
-    status: "Concluído",
-    produtos: "Polo EP",
-  },*/
-  {
-    industria: "Angelo Campana",
-    dataEmissao: "2025-10-09",
-    faturado: 0,
-    pendente: 80,
-    numeroERP: "3214",
+    industria: "Luiz Eugenio",
+    dataEmissao: "2025-09-24",
+    faturado: 633,
+    pendente: 698,
+    numeroERP: "198745",
     previsaoEntrega: "2025-12-15",
-    etapa: "3 - Fila de produção",
-    status: "Na fila de produção",
-    produtos: "Terno",
+    etapa: "3 - Na fila de produção",
+    status: "Aguardando janela de produção",
+    produtos: "Camisas LD",
   },
   {
-    industria: "Angelo Campana",
-    dataEmissao: "2025-10-09",
+    industria: "Don Geuroth",
+    dataEmissao: "2025-09-20",
     faturado: 0,
-    pendente: 126,
-    numeroERP: "3213",
+    pendente: 641,
+    numeroERP: "3101",
+    previsaoEntrega: "2025-10-31",
+    etapa: "4 - Em Produção",
+    status: "Peças na linha de produção",
+    produtos: "Camisetas e Polos",
+  },
+  {
+    industria: "KDU",
+    dataEmissao: "2025-09-15",
+    faturado: 0,
+    pendente: 1202,
+    numeroERP: "185128",
     previsaoEntrega: "2026-01-30",
-    etapa: "3 - Fila de produção",
-    status: "Na fila de produção",
-    produtos: "Terno",
+    etapa: "2 - Recebimento de Materiais",
+    status: "Aguardando Tecidos",
+    produtos: "Calça Malha",
   },
   {
-    industria: "Angelo Campana",
-    dataEmissao: "2025-10-10",
-    faturado: 0,
-    pendente: 31,
-    numeroERP: "3216",
+    industria: "Luiz Eugenio",
+    dataEmissao: "2025-08-18",
+    faturado: 237,
+    pendente: 263,
+    numeroERP: "199548",
     previsaoEntrega: "2025-12-15",
-    etapa: "3 - Fila de produção",
-    status: "Na fila de produção",
-    produtos: "Terno",
+    etapa: "4 - Em Produção",
+    status: "Camisas na linha de produção",
+    produtos: "Camisas Lisas",
   },
 ];
 
@@ -424,7 +370,7 @@ function OrderTimeline({ items }) {
 }
 
 /* ==================== DASHBOARD ==================== */
-function Dashboard({ onLogout }) {
+function Dashboard() {
   const [q, setQ] = useState("");
   const data = SAMPLE;
 
@@ -456,7 +402,7 @@ function Dashboard({ onLogout }) {
       },
     ];
     const csv = toCSV(filtered, headers, ";");
-    const nome = `pedidos_estilo_${new Date().toISOString().slice(0, 10)}.csv`;
+    const nome = `pedidos_filato_${new Date().toISOString().slice(0, 10)}.csv`;
     downloadCSV(nome, csv);
   };
 
@@ -466,13 +412,15 @@ function Dashboard({ onLogout }) {
       <header className="bg-white/80 backdrop-blur sticky top-0 z-20 border-b border-slate-200">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/cristal10.svg" alt="Estilo Próprio" className="h-12 sm:h-16" />
+            {/* ✅ DOBRADO: /cristal10.svg */}
+            <img src="/cristal10.svg" alt="Filato Bene" className="h-12 sm:h-16" />
           </div>
           <h1 className="absolute left-1/2 -translate-x-1/2 text-center text-base sm:text-xl font-semibold text-slate-900 whitespace-nowrap">
             Rastreamento de Pedidos
           </h1>
           <div className="flex items-center">
-            <img src="/cristal10-dark.png" alt="Cristal 10 Representações" className="h-6 sm:h-8 opacity-90" />
+            {/* também maior p/ equilibrar */}
+            <img src="/cristal10-dark.png" alt="Cristal 10 Representações" className="h-12 sm:h-16 opacity-90" />
           </div>
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-8 pb-3 flex justify-center">
@@ -487,9 +435,9 @@ function Dashboard({ onLogout }) {
 
       {/* Conteúdo */}
       <main className="p-4 sm:p-8 max-w-6xl mx-auto">
-        {/* ✅ timeline por pedido (Gantt) */}
+        {/* Timeline por pedido (Gantt) */}
         <div className="mb-4 sm:mb-6">
-          <OrderTimeline items={filtered} /> {/* troque por 'data' para visão geral */}
+          <OrderTimeline items={filtered} /> {/* troque por 'data' para visão geral sem filtro */}
         </div>
 
         {/* Cards detalhados */}
@@ -541,7 +489,7 @@ export default function App() {
   const [lembrar, setLembrar] = useState(true);
   const [autenticado, setAutenticado] = useState(false);
 
-  const senhaCorreta = "Estil@2025"; // troque aqui
+  const senhaCorreta = "filato2025"; // troque aqui
 
   useEffect(() => {
     const ok = localStorage.getItem("authOK") === "1";
@@ -568,14 +516,15 @@ export default function App() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-indigo-50 flex items-center justify-center p-4">
         <div className="w-full max-w-md">
+          {/* Logo topo login — maior */}
           <div className="flex items-center justify-center mb-6">
-            <img src="/cristal10-dark.png" alt="Cristal 10" className="h-10" />
+            <img src="/cristal10-dark.png" alt="Cristal 10" className="h-20 sm:h-24" />
           </div>
 
           <form onSubmit={handleLogin} className="bg-white rounded-2xl border border-slate-200 shadow-lg p-6 sm:p-8">
             <h1 className="text-2xl font-semibold text-slate-900 text-center">Área Restrita</h1>
             <p className="mt-1 text-center text-slate-500 text-sm">
-              Acesse o rastreamento de pedidos Estilo Próprio
+              Acesse o rastreamento de pedidos Filato Bene
             </p>
 
             <div className="mt-6">
@@ -615,8 +564,9 @@ export default function App() {
               Entrar
             </button>
 
+            {/* Rodapé do login — /cristal10.svg também dobrada */}
             <div className="mt-6 flex items-center justify-center">
-              <img src="/cristal10.svg" alt="Cristal 10" className="h-6 opacity-70" />
+              <img src="/cristal10.svg" alt="Cristal 10" className="h-12 sm:h-16 opacity-70" />
             </div>
           </form>
         </div>
@@ -626,3 +576,4 @@ export default function App() {
 
   return <Dashboard onLogout={handleLogout} />;
 }
+
