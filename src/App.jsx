@@ -466,7 +466,7 @@ function Dashboard({ onLogout }) {
       <header className="bg-white/80 backdrop-blur sticky top-0 z-20 border-b border-slate-200">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/cristal10.svg" alt="Estilo Próprio" className="h-6 sm:h-8" />
+            <img src="/cristal10.svg" alt="Estilo Próprio" className="h-12 sm:h-16" />
           </div>
           <h1 className="absolute left-1/2 -translate-x-1/2 text-center text-base sm:text-xl font-semibold text-slate-900 whitespace-nowrap">
             Rastreamento de Pedidos
