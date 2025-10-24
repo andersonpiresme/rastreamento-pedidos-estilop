@@ -512,7 +512,7 @@ function Dashboard({ onLogout }) {
             </div>
             <div className="flex gap-2 sm:ml-auto">
               <a
-                href="https://chat.whatsapp.com/FhNZfiuOksvEaKwcr5avFF"
+                href="https://wa.me/+5541995547920"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-xl bg-[#25D366] text-white px-4 py-2 text-sm shadow hover:bg-[#1EBE5D] transition whitespace-nowrap"
